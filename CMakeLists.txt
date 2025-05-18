@@ -12,6 +12,19 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
 project(main)
 
+if("${CMAKE_SYSTEM_NAME}" STREQUAL "Android")
+    if(NOT DEFINED ENV{ANDROID_NDK})
+        message(FATAL_ERROR "ANDROID_NDK environment variable is not set!")
+    endif()
+
+    set(ANDROID_NDK $ENV{ANDROID_NDK})
+    message(STATUS "Using Android NDK: ${ANDROID_NDK}")
+
+    set(CMAKE_TOOLCHAIN_FILE "${ANDROID_NDK}/build/cmake/android.toolchain.cmake")
+
+    set(ANDROID_PLATFORM 21)
+endif()
+
 add_library(${PROJECT_NAME} SHARED src/main.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
