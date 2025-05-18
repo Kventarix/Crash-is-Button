@@ -1,0 +1,25 @@
+{
+	"geode": "4.4.0",
+	"gd": {
+		"win": "2.2074"
+	},
+	"id": "kventarix.crash_is_button",
+	"name": "Crash is Button",
+	"version": "v1.0.0",
+	"developer": "Kventarix",
+	"description": "Add button for crash the game.",
+	"links": {
+		"source": "https://github.com/Kventar/Crash-is-button"
+	},
+    "dependencies": {
+        "geode.node-ids": ">=v1.19.0"
+    },
+	"resources": {
+    	"files": [
+      		"resources/*.png"
+    	],
+	    "sprites": [
+    	  	"resources/sprites/*.png"
+		]
+	}
+}
