@@ -1,18 +1,21 @@
 {
-	"geode": "4.4.0",
+	"geode": "4.6.3",
 	"gd": {
-		"win": "2.2074"
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
 	},
 	"id": "kventarix.crash_is_button",
 	"name": "Crash is Button",
-	"version": "v1.0.1",
-	"developer": "Kventarix",
+	"version": "v1.0.2",
+	"developers": ["Kventarix", "oki3ed"],
 	"description": "Add button for crash the game.",
 	"tags": [
 		"joke"
 	],
 	"links": {
-		"source": "https://github.com/Kventar/Crash-is-button"
+		"source": "https://github.com/Kventarix/Crash-is-button"
 	},
     "dependencies": {
         "geode.node-ids": ">=v1.19.0"
