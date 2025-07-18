@@ -9,3 +9,6 @@
     - Changed the texture of the button !
     - [Showcase](kventarix.crash_is_button/changelog-image.png)
 - Added warning before crash
+
+# 1.0.3
+- Fix crash on mobile
