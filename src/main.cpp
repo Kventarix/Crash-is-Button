@@ -3,50 +3,47 @@
 
 using namespace geode::prelude;
 
-class $modify(CrashButtonLayer, MenuLayer) {
-public:
-    bool init() override {
+class $modify(CrashButtonMod, MenuLayer) {
+    bool init() {
         if (!MenuLayer::init()) {
             return false;
         }
 
-        auto buttonSprite = CCSprite::create("kventarix.crash_is_button/CrashBtn.png");
-        if (!buttonSprite) {
-            log::warn("CrashButton: failed to load CrashBtn.png");
-            return true;
-        }
+        auto bg = CCSprite::create("kventarix.crash_is_button/closeCircle.png");
+        if (!bg) return true;
+        bg->setScale(0.7f);
 
-        auto crashButton = CCMenuItemSpriteExtra::create(
-            buttonSprite,
+        auto icon = CCSprite::create("kventarix.crash_is_button/crashBtn.png");
+        if (!icon) return true;
+        icon->setPosition(bg->getContentSize() / 2);
+        bg->addChild(icon);
+
+        auto button = CCMenuItemSpriteExtra::create(
+            bg,
             this,
-            menu_selector(CrashButtonLayer::onCrashButton)
+            menu_selector(CrashButtonMod::onCrashButton)
         );
-        crashButton->setID("crash-button"_spr);
+        button->setID("crash-button"_spr);
 
-        auto crashMenu = CCMenu::create(crashButton, nullptr);
-        crashMenu->setID("crash-menu"_spr);
-
-        auto size = this->getContentSize();
-
-        float offsetX = 35.f;
-        float offsetY = 35.f;
-        float posX = size.width - offsetX;
-        float posY = size.height - offsetY;
-
-        crashMenu->setPosition(ccp(posX, posY));
-
-        this->addChild(crashMenu);
+        auto closeMenu = this->getChildByID("close-menu");
+        closeMenu->addChild(button);
+        closeMenu->updateLayout();
 
         return true;
     }
 
     void onCrashButton(CCObject*) {
-        int* p = nullptr;
-        *p = 42; // forced crash by null pointer dereference
+        geode::createQuickPopup(
+            "Crash Game",
+            "Are you sure you want to <cr>crash</c>?\n<cr>PROGRESS MAY BE NOT SAVED</c>!!!",
+            "Cancel",
+            "Yes",
+            [](auto, bool btn2) {
+                if (btn2) {
+                    int* p = nullptr;
+                    *p = 42;
+                }
+            }
+        );
     }
 };
-
-GEODE_API bool load() {
-    log::info("CrashButton: loaded successfully");
-    return true;
-}
