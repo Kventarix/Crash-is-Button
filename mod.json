@@ -8,7 +8,7 @@
 	},
 	"id": "kventarix.crash_is_button",
 	"name": "Crash is Button",
-	"version": "v1.0.3",
+	"version": "v1.1.0",
 	"developers": ["Kventarix", "oki3ed"],
 	"description": "Add button for crash the game.",
 	"tags": [
@@ -29,4 +29,5 @@
 		]
 	}
 }
+
 
