@@ -1,5 +1,5 @@
 {
-	"geode": "5.0.0-beta.3",
+	"geode": "5.0.0",
 	"gd": {
 		"win": "2.2081",
 		"android": "2.2081",
@@ -9,7 +9,7 @@
 	"id": "kventarix.crash_is_button",
 	"name": "Crash is Button",
 	"version": "v1.1.0",
-	"developers": ["Kventarix", "oki3ed"],
+	"developers": ["Kventarix", "CMDs"],
 	"description": "Add button for crash the game.",
 	"tags": [
 		"joke"
@@ -18,7 +18,7 @@
 		"source": "https://github.com/Kventarix/Crash-is-button"
 	},
     "dependencies": {
-        "geode.node-ids": ">=v1.19.0"
+        "geode.node-ids": ">=v1.20.0"
     },
 	"resources": {
     	"files": [
@@ -29,5 +29,6 @@
 		]
 	}
 }
+
 
 
